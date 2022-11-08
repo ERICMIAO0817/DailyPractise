@@ -13,4 +13,3 @@ class Solution:
             temp = nums.index(0)
             nums.pop(temp)
             nums.append(0)
-            
