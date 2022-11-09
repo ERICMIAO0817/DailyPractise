@@ -6,16 +6,18 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 class Solution:
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        h = head
-        count = 1
-        if count == 1 and n == 1:
-            head.next = None
-            head.val = None
-            return head
-        point = h.next
-        while h.next:
-            count += 1
-            h = h.next
-            point = point.next
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy = ListNode(0, head)
+        first = head
+        second = dummy
+        for i in range(n):
+            first = first.next
+
+        while first:
+            first = first.next
+            second = second.next
+
+        second.next = second.next.next
+        return dummy.next
